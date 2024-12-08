@@ -1,0 +1,157 @@
+[
+  {
+    "id": "01",
+    "title": "Full stack developer + leadership",
+    "company": "Vueling Airlines",
+    "year": "Aug 2019 - now",
+    "link": "https://vueling.com",
+    "tech": [
+      "ASP.Net",
+      "MVC",
+      "Entity Framework",
+      "Autofac",
+      "XSLT",
+      "XML",
+      "JavaScript",
+      "jQuery",
+      "C#",
+      "LINQ",
+      "Azure DevOps",
+      "Angular",
+      "Typescript",
+      "WebApi",
+      "VueJS",
+      "N-Layers",
+      "Scrum",
+      "Git",
+      "TFS",
+      "Azure",
+      "Navitaire Products",
+      "Gitflow repository",
+      "CI/CD with Azure Pipelines"
+    ],
+    "description": "Within the airline's own website, I am part of the small team (2-4) that is responsible for the Low Funnel denomination (as it refers in terms of Commercial Funnel conversion). In addition, the related work to Vueling Ancillaries through Merchandising, to present the products at the right time, in the place, with the right quantity and price to maximize sales, thanks to platforms like Monetate ( A/B Test - visual) Omniture and Google Analytics. In addition to managing the Ancillaries, after the purchase (Post Booking)"
+  },
+  {
+    "id": "02",
+    "title": "Full stack developer + leadership",
+    "company": "Level Airlines",
+    "year": "Sep 2022 - Aug 2023",
+    "link": "https://flylevel.com",
+    "tech": [
+      "N-Layers",
+      "Scrum",
+      "Git",
+      "TFS",
+      "Azure",
+      "Navitaire Products",
+      "Resiber",
+      "Gitflow repository",
+      "CI/CD with Azure Pipelines",
+      "Umbraco",
+      "ASP.Net",
+      "MVC",
+      "AngularJS",
+      "WPF",
+      "Razor MVC",
+      "JavaScript",
+      "jQuery",
+      "C#",
+      "LINQ",
+      "Azure DevOps",
+      "Angular",
+      "WebApi",
+      "VueJS"
+    ],
+    "description": " Maintenance and development of the company's website."
+  },
+  {
+    "id": "03",
+    "title": "Project Manager & Developer",
+    "company": "ANS Invest Advisors",
+    "year": "Jan 2024 - now",
+    "link": "https://ansinvestadvisors.com/",
+    "tech": [
+      "ClickUp",
+      "Manager",
+      "Wordpress",
+      "Git",
+      "Server",
+      "Marketing",
+      "Html",
+      "CSS",
+      "JS",
+      "Agile",
+      "Slack",
+      "Leadership"
+    ],
+    "description": "Web and social media manager of ANS Invest Advisors. Server management, domain, and mail server management."
+  },
+  {
+    "id": "04",
+    "title": "Project Manager & Developer",
+    "company": "ANS Insurance Services",
+    "year": "DIC 2020 - now",
+    "link": "https://ansinsuranceservices.com/en/",
+    "tech": [
+      "ClickUp",
+      "Manager",
+      "Wordpress",
+      "Git",
+      "Server",
+      "Marketing",
+      "Html",
+      "CSS",
+      "JS",
+      "Agile",
+      "Slack",
+      "Leadership"
+    ],
+    "description": "Web and social media manager of ANS Insurance Services. Server management, domain, and mail server management."
+  },
+  {
+    "id": "05",
+    "title": "Project Manager & Developer",
+    "company": "Cuba Blue Diving",
+    "year": "March 2018 - Jan 2023",
+    "link": "http://cubabluediving.com/en/",
+    "tech": [
+      "Manager",
+      "Wordpress",
+      "Git",
+      "Server",
+      "Marketing",
+      "Html",
+      "CSS",
+      "JS",
+      "Leadership"
+    ],
+    "description": "Web and social media manager of Cuba Blue Diving. Server management, domain, and mail server management."
+  },  
+  {
+    "id": "06",
+    "title": "Front Developer",
+    "company": "Ngx Smart Skeleton",
+    "year": "March 2018 - Jan 2023",
+    "link": "https://ngxsmartskeleton.web.app/",
+    "tech": [
+      "Git",
+      "Gitflow repository",
+      "GitHub",
+      "Firebase Google",
+      "CI/CD with GitHub",
+      "Angular"
+    ],
+    "description": "Angular UX library de angular contains a complete set of skeleton components for the asynchronous loading of web applications."
+  },  
+  {
+    "id": "08",
+    "title": "Team Leader",
+    "company": "Combray Solutions",
+    "year": "Oct 2017 - Jan 2019",
+    "tech": [
+      "Energy","Sales","Leadership"
+    ],
+    "description": "Head of sales team"
+  }
+]

@@ -1,0 +1,23 @@
+[  
+  {
+    "id": "01",
+    "title": "Master´s degree, Master Programming .NET",
+    "year": "2019 - 2020",
+    "school": "Professional Computing Center (CIPSA)",
+    "city": "Barcelona, Spain"
+  },
+  {
+    "id": "02",
+    "title": "Web design",
+    "year": "2018 - 2019",
+    "school": "Professional Computing Center (CIPSA)",
+    "city": "Barcelona, Spain"
+  },
+  {
+    "id": "03",
+    "title": "Programming Engineer, Software developer",
+    "year": "2011 - 2016",
+    "school": "Universidad Tecnológica de La Habana José Antonio Echeverría​, CUJAE",
+    "city": "Havana, Cuba"
+  }
+]
