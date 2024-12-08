@@ -113,7 +113,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 My Data
 - GitHub: [@alejandrobolano](https://github.com/alejandrobolano/)
-- LinkedIn: [Sandeep Makwana](https://www.linkedin.com/in/alejandro-bolano/)
+- LinkedIn: [Alejandro Bolaño](https://www.linkedin.com/in/alejandro-bolano/)
 - Forked from [@isandeepmakwana](https://github.com/isandeepmakwana)
 
 ---
