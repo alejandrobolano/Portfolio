@@ -60,6 +60,8 @@ pnpm dev
 my-portfolio/
 ├── src/
 │   ├── components/
+|   |──── data/
+|   |──── models/
 │   ├── pages/
 │   ├── assets/
 │   ├── styles/
@@ -109,9 +111,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👤 Author
 
-Your Name
-- GitHub: [@isandeepmakwana](https://github.com/isandeepmakwana)
-- LinkedIn: [Sandeep Makwana](https://linkedin.com/in/sandeepmakwana)
+My Data
+- GitHub: [@alejandrobolano](https://github.com/alejandrobolano/)
+- LinkedIn: [Sandeep Makwana](https://www.linkedin.com/in/alejandro-bolano/)
+- Forked from [@isandeepmakwana](https://github.com/isandeepmakwana)
 
 ---
 
