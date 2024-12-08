@@ -1,0 +1,17 @@
+[
+    {
+      "icon": "Mail",
+      "label": "alejandro.bolano.336@gmail.com",
+      "href": "mailto:alejandro.bolano.336@gmail.com"
+    },
+    {
+      "icon": "Phone",
+      "label": "+34 604373923",
+      "href": "tel:+34604373923"
+    },
+    {
+      "icon": "MapPin",
+      "label": "Barcelona, Spain",
+      "href": "https://maps.app.goo.gl/SAWgjBb7N2wYye6j7"
+    }
+  ]

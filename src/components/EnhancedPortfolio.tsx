@@ -8,6 +8,10 @@ import { colors } from './models/Colors';
 import { colorThemes } from './models/ColorThemes';
 import projects from './data/projects.json';
 import careers from './data/careers.json';
+import skills from './data/skills.json';
+import aboutMe from './data/about.json';
+import achievements from './data/achievements.json';
+import { marked } from 'marked';
 
 type SocialData = {
   icon: SimpleIcon
@@ -25,6 +29,24 @@ const socialDataLabel: SocialData[] = [
   { icon: siGmail, label: 'Email', href: 'mailto:alejandro.bolano.336@gmail.com' }
 ]
 
+const contacts = [
+  {
+    icon: Mail,
+    label: "alejandro.bolano.336@gmail.com",
+    href: "mailto:alejandro.bolano.336@gmail.com",
+  },
+  {
+    icon: Phone,
+    label: "+34 604373923",
+    href: "tel:+34604373923",
+  },
+  {
+    icon: MapPin,
+    label: "Barcelona, Spain",
+    href: "https://maps.app.goo.gl/SAWgjBb7N2wYye6j7",
+  },
+]
+
 const navigation: string[] = ['home', 'about', 'projects', 'career', 'contact']
 type windowStyle = 'modern' | 'retro' | 'minimal' | 'glass' | 'neon' | 'matrix' | 'cyberpunk' | 'gradient' | 'vaporwave' | 'paper'
 const windowStyles: windowStyle[] = [
@@ -40,44 +62,9 @@ const windowStyles: windowStyle[] = [
   'paper',
 ];
 
-const otherSkills = ["Teamwork", "Marketing", "Leadership", "Scrum", "SOLID", "POO", "UML", "Canva", "AI", "Ionos Server", "Agile Process"]
-const languagesAndFameworks = [
-  "ASP.Net",
-  "JavaScript",
-  "TypeScript",
-  "C#",
-  "MVC Entity Framework",
-  "Autofac",
-  "XSLT",
-  "XML",
-  "HTML",
-  "CSS",
-  "LINQ",
-  "Angular",
-  "VueJS",
-  "Net Core",
-  "jQuery",
-  "Azure DevOps",
-  "CSS",
-  "AngularJS"
-]
-
-const tools = [
-  "Navitaire Products",
-  "GitFlow",
-  "CI/CD Azure Pipelines",
-  "CI/CD GitHub (Actions)",   
-  "Umbraco",                     
-  "Photoshop",
-  "Wordpress",
-  "Git",
-  "Azure",
-  "Firebase",
-  "GitHub",
-  "Android Studio"
-]
-
 const randomColors500 = ["blue", "green", "purple"];
+const cvView = "https://drive.google.com/file/d/1ZrA5K017qO8h1yPeM0n7HePGNsGFs5P3/view?usp=sharing";
+const cvDownload = "https://drive.google.com/uc?export=download&id=1ZrA5K017qO8h1yPeM0n7HePGNsGFs5P3";
 
 
 export default function EnhancedPortfolio() {
@@ -253,7 +240,7 @@ export default function EnhancedPortfolio() {
             ))}
             <li className="md:ml-4">
               <motion.a
-                href="https://drive.google.com/file/d/1wzmmR0z68oF1bbAdFbrzcoAl6c1ZVeTh/view?usp=sharing"
+                href={cvView}
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
@@ -484,8 +471,9 @@ export default function EnhancedPortfolio() {
                   </span>{" "}
                   with desires for{" "}
                   <span className={`text-${colorTheme}-400 font-semibold`}>
-                  personal and professional improvement.
-                  </span>〽 I like daily challenges because I can gain new experiences, trying to challenge myself every day to be better.
+                    personal and professional improvement.
+                  </span>〽 I like daily challenges because I can gain new experiences,
+                  trying to challenge myself every day to be better.
                 </motion.p>
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
@@ -504,7 +492,7 @@ export default function EnhancedPortfolio() {
                     Get in touch
                   </motion.a>
                   <motion.a
-                    href="https://drive.google.com/uc?export=download&id=1ZrA5K017qO8h1yPeM0n7HePGNsGFs5P3"
+                    href={cvDownload}
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.05 }}
@@ -523,9 +511,9 @@ export default function EnhancedPortfolio() {
                   transition={{ delay: 0.7 }}
                   className="mt-12 flex justify-center gap-6"
                 >
-                  {socialDataLabel.map((social, index) => (
+                  {socialDataLabel.map((social) => (
                     <motion.a
-                      key={index}
+                      key={social.label}
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -580,37 +568,28 @@ export default function EnhancedPortfolio() {
                 About Me
               </h2>
               <div className="grid md:grid-cols-2 gap-6">
-                <Window title="about-me.txt" isActive>
+                <Window title="about.json" isActive>
                   <div className="font-mono space-y-4 text-zinc-300">
                     <div className="typing-effect">
-                      <div className="flex gap-4 items-center hover:bg-zinc-800/50 p-2 rounded transition-colors">
-                        <span className="text-zinc-600 select-none">01</span>
-                        <span>
-                        👉 I specialize in the web development world, I would say full-stack although 60% front and 40% back, otherwise, I am a lover of the Android world.
-                        Also, <span className="text-yellow-400">I love doing manager team and lead it</span>.
-                        </span>
-                      </div>
-                      <div className="flex gap-4 items-center hover:bg-zinc-800/50 p-2 rounded transition-colors">
-                        <span className="text-zinc-600 select-none">02</span>
-                        <span>
-                        I like <span className="text-purple-400">marketing, sales, and customer interaction</span>, what will the customer do with this button that I have put?
-                        I try to look at what I do in detail looking for good quality and learn from what I do.
-                        </span>
-                      </div>
-                      <div className="flex gap-4 items-center hover:bg-zinc-800/50 p-2 rounded transition-colors">
-                        <span className="text-zinc-600 select-none">03</span>
-                        <span>
-                        🌎Of course, <span className="text-orange-400">not everything is working</span> so I also like to travel, walk, 
-                        exercise, be in contact with nature, and discover new corners of this world, ah! and <span className="text-pink-400">try fresh foods</span>.
-                        </span>
-                      </div>
-                      <div className="flex gap-4 items-center hover:bg-zinc-800/50 p-2 rounded transition-colors">
-                        <span className="text-zinc-600 select-none">04</span>
-                        <span>
-                        👉 In short, I consider myself a <span className="text-green-400">young worker, dedicated, discreet, humble, self-sacrificing, 
-                          traveler, explorer, family member, ambitious, and passionate about teamwork.</span>
-                        </span>
-                      </div>
+                      {aboutMe.map((info) => {
+                        const markdownContent = marked(info.text);
+                        return (
+                          <div
+                            key={info.id}
+                            className="flex gap-4 items-center hover:bg-zinc-800/50 p-2 rounded transition-colors"
+                          >
+                            <span className="text-zinc-600 select-none">
+                              {info.id}
+                            </span>
+                            <span
+                              className="text-zinc-300"
+                              dangerouslySetInnerHTML={{
+                                __html: markdownContent,
+                              }}
+                            ></span>
+                          </div>
+                        );
+                      })}
                     </div>
                   </div>
                 </Window>
@@ -620,10 +599,11 @@ export default function EnhancedPortfolio() {
                     <div className="space-y-6">
                       <div>
                         <h3 className="text-green-500 mb-4 font-semibold flex items-center gap-2">
-                          <span className="w-2 h-2 bg-green-500 rounded-full"></span>Languages & Frameworks
+                          <span className="w-2 h-2 bg-green-500 rounded-full"></span>{" "}
+                          Languages & Frameworks
                         </h3>
                         <div className="flex flex-wrap gap-3">
-                          {languagesAndFameworks.map((skill) => (
+                          {skills.languagesAndFrameworks.map((skill) => (
                             <motion.span
                               key={skill}
                               whileHover={{ scale: 1.05 }}
@@ -637,10 +617,11 @@ export default function EnhancedPortfolio() {
 
                       <div>
                         <h3 className="text-blue-400 mb-4 font-semibold flex items-center gap-2">
-                          <span className="w-2 h-2 bg-blue-400 rounded-full"></span>Tools
+                          <span className="w-2 h-2 bg-blue-400 rounded-full"></span>{" "}
+                          Tools
                         </h3>
                         <div className="flex flex-wrap gap-3">
-                          {tools.map((skill) => (
+                          {skills.tools.map((skill) => (
                             <motion.span
                               key={skill}
                               whileHover={{ scale: 1.05 }}
@@ -654,50 +635,41 @@ export default function EnhancedPortfolio() {
 
                       <div>
                         <h3 className="text-yellow-500 mb-4 font-semibold flex items-center gap-2">
-                          <span className="w-2 h-2 bg-yellow-500 rounded-full"></span>Other skills
+                          <span className="w-2 h-2 bg-yellow-500 rounded-full"></span>{" "}
+                          Other skills
                         </h3>
                         <div className="flex flex-wrap gap-3">
-                          {otherSkills.map(
-                            (skill) => (
-                              <motion.span
-                                key={skill}
-                                whileHover={{ scale: 1.05 }}
-                                className="px-3 py-1.5 bg-zinc-800/70 rounded-lg text-sm text-zinc-300 hover:bg-zinc-700/70 transition-colors cursor-default"
-                              >
-                                {skill}
-                              </motion.span>
-                            )
-                          )}
+                          {skills.other.map((skill) => (
+                            <motion.span
+                              key={skill}
+                              whileHover={{ scale: 1.05 }}
+                              className="px-3 py-1.5 bg-zinc-800/70 rounded-lg text-sm text-zinc-300 hover:bg-zinc-700/70 transition-colors cursor-default"
+                            >
+                              {skill}
+                            </motion.span>
+                          ))}
                         </div>
                       </div>
                     </div>
                   </Window>
 
-                  <Window title="achievements.md">
+                  <Window title="achievements.json">
                     <div className="space-y-4">
-                      {[
-                        {
-                          icon: "🏆",
-                          color: "text-green-500",
-                          text: "Scrum Foundation Professional Certificate",
-                        },
-                        {
-                          icon: "🎯",
-                          color: "text-blue-400",
-                          text: "Marketing digital by Google",
-                        },
-                      ].map((achievement, index) => (
-                        <motion.div
-                          key={index}
-                          whileHover={{ x: 4 }}
-                          className="flex items-center gap-3 p-2 hover:bg-zinc-800/50 rounded-lg transition-colors"
-                        >
-                          <span className="text-xl">{achievement.icon}</span>
-                          <span className={`${achievement.color} font-medium`}>
-                            {achievement.text}
-                          </span>
-                        </motion.div>
-                      ))}
+                      {achievements.map((achievement) => {
+                        const color = getRandomColor();
+                        return (
+                          <motion.div
+                            key={achievement.id}
+                            whileHover={{ x: 4 }}
+                            className="flex items-center gap-3 p-2 hover:bg-zinc-800/50 rounded-lg transition-colors"
+                          >
+                            <span className="text-xl">{achievement.icon}</span>
+                            <span className={`text-${color}-400 font-medium`}>
+                              {achievement.text}
+                            </span>
+                          </motion.div>
+                        );
+                      })}
                     </div>
                   </Window>
                 </div>
@@ -734,7 +706,9 @@ export default function EnhancedPortfolio() {
                             {project.title}
                           </h3>
                           <span className="text-zinc-600 font-mono">
-                          <a href={project?.link} target='blanck'>{project?.company}</a>
+                            <a href={project?.link} target="blanck">
+                              {project?.company}
+                            </a>
                           </span>
                         </div>
                         <span className="text-zinc-600">{project.year}</span>
@@ -772,7 +746,7 @@ export default function EnhancedPortfolio() {
                   Career Journey
                 </h2>
                 <motion.a
-                  href="https://drive.google.com/file/d/1ZrA5K017qO8h1yPeM0n7HePGNsGFs5P3/view?usp=sharing"
+                  href={cvView}
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.05 }}
@@ -788,48 +762,51 @@ export default function EnhancedPortfolio() {
               </div>
               <Window title="careers.json" isActive={activeWindow === "career"}>
                 <div className="space-y-12">
+                  {careers.map((career) => {
+                    const color = getRandomColor();
+                    return (
+                      <motion.div
+                        key={career.id}
+                        className={`relative pl-8 border-l-2 border-${color}-500/20`}
+                        whileHover={{ scale: 1.02 }}
+                        transition={{ type: "spring", stiffness: 300 }}
+                      >
+                        <div className="absolute -left-[9px] top-0">
+                          <div
+                            className={`w-4 h-4 rounded-full bg-${color}-500`}
+                          />
+                        </div>
+                        <div className="space-y-4">
+                          <div className="flex justify-between items-center">
+                            <h3
+                              className={`text-xl font-bold ${
+                                isDarkMode ? "text-white" : "text-black"
+                              }`}
+                            >
+                              {career.title}
+                            </h3>
+                            <span
+                              className={`text-${color}-500 font-mono text-sm`}
+                            >
+                              {career.year}
+                            </span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <span
+                              className={`font-semibold ${
+                                isDarkMode ? "text-zinc-300" : "text-gray-700"
+                              }`}
+                            >
+                              {career.school}
+                            </span>
 
-                {careers.map((career) => {
-                  const color = getRandomColor();
-                  return (
-                    <motion.div
-                    key={career.id}
-                    className={`relative pl-8 border-l-2 border-${color}-500/20`}                    
-                    whileHover={{ scale: 1.02 }}
-                    transition={{ type: "spring", stiffness: 300 }}
-                  >
-                    <div className="absolute -left-[9px] top-0">
-                      <div className={`w-4 h-4 rounded-full bg-${color}-500`} />
-                    </div>
-                    <div className="space-y-4">
-                      <div className="flex justify-between items-center">
-                        <h3
-                          className={`text-xl font-bold ${
-                            isDarkMode ? "text-white" : "text-black"
-                          }`}
-                        >
-                          {career.title}
-                        </h3>
-                        <span className={`text-${color}-500 font-mono text-sm`}>
-                          {career.year}
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <span
-                          className={`font-semibold ${
-                            isDarkMode ? "text-zinc-300" : "text-gray-700"
-                          }`}
-                        >
-                          {career.school}
-                        </span>
-                        
-                        <span className="text-zinc-500">•</span>
-                        <span className="text-zinc-500">{career.city}</span>
-                      </div>
-                    </div>
-                  </motion.div>
-                  )}
-                  )}
+                            <span className="text-zinc-500">•</span>
+                            <span className="text-zinc-500">{career.city}</span>
+                          </div>
+                        </div>
+                      </motion.div>
+                    );
+                  })}
                 </div>
               </Window>
             </section>
@@ -914,25 +891,9 @@ export default function EnhancedPortfolio() {
                 <Window title="me-online.sh">
                   <div className="space-y-6">
                     <div className="space-y-4">
-                      {[
-                        {
-                          icon: Mail,
-                          label: "alejandro.bolano.336@gmail.com",
-                          href: "mailto:alejandro.bolano.336@gmail.com",
-                        },
-                        {
-                          icon: Phone,
-                          label: "+34 604373923",
-                          href: "tel:+34604373923",
-                        },
-                        {
-                          icon: MapPin,
-                          label: "Barcelona, Spain",
-                          href: "https://maps.app.goo.gl/SAWgjBb7N2wYye6j7",
-                        },
-                      ].map((contact, index) => (
+                      {contacts.map((contact) => (
                         <motion.div
-                          key={index}
+                          key={contact.label}
                           whileHover={contact.href ? { x: 4 } : {}}
                           className={`group flex items-center gap-4 p-2 rounded-md ${
                             contact.href ? "hover:bg-zinc-800/50" : ""
@@ -961,9 +922,9 @@ export default function EnhancedPortfolio() {
 
                     <div className="pt-4 border-t border-zinc-800">
                       <div className="space-y-4">
-                        {socialData.map((social, index) => (
+                        {socialData.map((social) => (
                           <motion.div
-                            key={index}
+                            key={social.label}
                             whileHover={{ x: 4 }}
                             className="group flex items-center gap-4 p-2 rounded-md hover:bg-zinc-800/50 transition-colors"
                           >
@@ -984,7 +945,9 @@ export default function EnhancedPortfolio() {
                             >
                               {social.label}
                             </a>
-                            <ArrowUpRight className={`text-zinc-600 w-4 h-4 group-hover:text-${colorTheme}-400 transition-colors ml-auto`} />
+                            <ArrowUpRight
+                              className={`text-zinc-600 w-4 h-4 group-hover:text-${colorTheme}-400 transition-colors ml-auto`}
+                            />
                           </motion.div>
                         ))}
                       </div>

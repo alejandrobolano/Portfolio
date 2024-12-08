@@ -1,0 +1,49 @@
+{
+  "languagesAndFrameworks": [
+    "ASP.Net",
+    "JavaScript",
+    "TypeScript",
+    "C#",
+    "MVC Entity Framework",
+    "Autofac",
+    "XSLT",
+    "XML",
+    "HTML",
+    "CSS",
+    "LINQ",
+    "Angular",
+    "VueJS",
+    "Net Core",
+    "jQuery",
+    "Azure DevOps",
+    "CSS",
+    "AngularJS"
+  ],
+  "tools": [
+    "Navitaire Products",
+    "GitFlow",
+    "CI/CD Azure Pipelines",
+    "CI/CD GitHub (Actions)",
+    "Umbraco",
+    "Photoshop",
+    "Wordpress",
+    "Git",
+    "Azure",
+    "Firebase",
+    "GitHub",
+    "Android Studio"
+  ],
+  "other": [
+    "Teamwork",
+    "Marketing",
+    "Leadership",
+    "Scrum",
+    "SOLID",
+    "POO",
+    "UML",
+    "Canva",
+    "AI",
+    "Ionos Server",
+    "Agile Process"
+  ]
+}
