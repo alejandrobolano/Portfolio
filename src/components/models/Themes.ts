@@ -151,19 +151,6 @@ export const themes: Themes = {
         animate: { opacity: 1, rotate: 0 },
         transition: { type: "spring", stiffness: 200 },
       },
-    },
-    paper: {
-      window: "bg-stone-50 rounded-lg border border-stone-200 shadow-md",
-      header: "px-4 py-2 bg-stone-100 border-b border-stone-200",
-      buttons: "flex gap-2",
-      button: "w-3 h-3 rounded-full shadow-sm",
-      title: "text-sm text-stone-600 font-mono",
-      content: "p-4 text-stone-800",
-      animation: {
-        initial: { opacity: 0, y: -5 },
-        animate: { opacity: 1, y: 0 },
-        transition: { duration: 0.2 },
-      },
-    },
+    }
   };
   

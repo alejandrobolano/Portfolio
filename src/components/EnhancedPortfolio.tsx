@@ -48,7 +48,7 @@ const contacts = [
 ]
 
 const navigation: string[] = ['home', 'about', 'projects', 'career', 'contact']
-type windowStyle = 'modern' | 'retro' | 'minimal' | 'glass' | 'neon' | 'matrix' | 'cyberpunk' | 'gradient' | 'vaporwave' | 'paper'
+type windowStyle = 'modern' | 'retro' | 'minimal' | 'glass' | 'neon' | 'matrix' | 'cyberpunk' | 'gradient' | 'vaporwave'
 const windowStyles: windowStyle[] = [
   'modern',
   'retro',
@@ -58,8 +58,7 @@ const windowStyles: windowStyle[] = [
   'matrix',
   'cyberpunk',
   'gradient',
-  'vaporwave',
-  'paper',
+  'vaporwave'
 ];
 
 const randomColors500 = ["blue", "green", "purple"];
@@ -103,14 +102,6 @@ export default function EnhancedPortfolio() {
     const timer = setTimeout(() => setIsLoading(false), 500)
     return () => clearTimeout(timer)
   }, [])
-
-  useEffect(() => {
-    if (!isDarkMode) {
-      setTerminalStyle('paper')
-    } else {
-      setTerminalStyle(defaultWindow) 
-    }
-  }, [isDarkMode])
 
   
   interface WindowProps {
@@ -237,18 +228,17 @@ export default function EnhancedPortfolio() {
               </li>
             ))}
             <li className="md:ml-4">
-              <motion.a
-                href={cvView}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-2 px-4 py-2 bg-green-500 text-black font-semibold rounded-full 
-                  hover:bg-green-400 transition-colors duration-300"
-              >
-                <FileText className="w-4 h-4" />
-                Resume
-              </motion.a>
+              <motion.button
+                    onClick={() => onCustomLinkClick(cvDownload)}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                    whileDrag={{ scale: 0.9, rotate: 10 }}
+                    className={`inline-flex items-center gap-2 py-3 px-6 rounded-full border-2 border-${colorTheme}-400 
+    text-${colorTheme}-400 font-bold hover:bg-${colorTheme}-400/10 transition-colors duration-300 cursor-pointer`}
+                  >
+                    <FileText className="w-5 h-5" />
+                    Curriculum PDF
+                  </motion.button>
             </li>
             <li>
               <button
@@ -440,7 +430,7 @@ export default function EnhancedPortfolio() {
                   <img
                     src="/image/profile-pic-logo.png"
                     alt="Alejandro Bolaño"
-                    className="w-64 h-64 object-cover rounded-lg shadow-lg"
+                    className="w-64 h-64 object-cover rounded-lg"
                   />
                 </motion.div>
 
@@ -486,7 +476,7 @@ export default function EnhancedPortfolio() {
                   }`}
                 >
                   I'm a Software Engineer specializing in{" "}
-                  <span className={`text-${colorTheme}-400 font-semibold`}>
+                  <span className={`text-${colorTheme}-400 ${colorTheme} font-semibold`}>
                     full-stack development
                   </span>{" "}
                   with desires for{" "}
@@ -494,7 +484,7 @@ export default function EnhancedPortfolio() {
                     personal and professional improvement.
                   </span>{" "}
                   〽 I like daily challenges because I can gain new experiences,
-                  trying to challenge myself every day to be better.
+                  trying to challenge myself every day to be better. I love <span className={`text-${colorTheme}-400 font-semibold`}>doing manager team and lead it</span>
                 </motion.p>
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}
@@ -527,7 +517,7 @@ export default function EnhancedPortfolio() {
                     <Mail className="w-5 h-5" />
                     Get in touch
                   </motion.button>
-                  <motion.a
+                  <motion.button
                     onDoubleClick={() => onCustomLinkClick(cvDownload)}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
@@ -539,7 +529,7 @@ export default function EnhancedPortfolio() {
                   >
                     <FileText className="w-5 h-5" />
                     Download CV
-                  </motion.a>
+                  </motion.button>
                 </motion.div>
 
                 <motion.div
