@@ -100,21 +100,19 @@ export default function EnhancedPortfolio() {
   }, [])
 
   useEffect(() => {
-    // Add initial loading animation
     const timer = setTimeout(() => setIsLoading(false), 500)
     return () => clearTimeout(timer)
   }, [])
 
   useEffect(() => {
-    // Update terminal style when dark mode changes
     if (!isDarkMode) {
       setTerminalStyle('paper')
     } else {
-      setTerminalStyle(defaultWindow) // or whatever default dark theme you prefer
+      setTerminalStyle(defaultWindow) 
     }
   }, [isDarkMode])
 
-  // Window component with TypeScript props
+  
   interface WindowProps {
     title: string
     children: React.ReactNode
@@ -378,6 +376,14 @@ export default function EnhancedPortfolio() {
     return colors[colorTheme]
   }
 
+  const onCustomClick = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  }
+  const onCustomLinkClick = (url: string) => {
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
+  
+
   return (
     <div
       className="min-h-screen transition-all duration-500 font-mono"
@@ -424,6 +430,19 @@ export default function EnhancedPortfolio() {
                 transition={{ duration: 0.5 }}
                 className="text-center z-10 px-4"
               >
+                <motion.div
+                  initial={{ opacity: 0, y: -50 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1, ease: "easeOut" }}
+                  className="flex justify-center items-center mb-4"
+                >
+                  <img
+                    src="/image/profile-pic-logo.png"
+                    alt="Alejandro Bolaño"
+                    className="w-64 h-64 object-cover rounded-lg shadow-lg"
+                  />
+                </motion.div>
+
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -472,33 +491,48 @@ export default function EnhancedPortfolio() {
                   with desires for{" "}
                   <span className={`text-${colorTheme}-400 font-semibold`}>
                     personal and professional improvement.
-                  </span>〽 I like daily challenges because I can gain new experiences,
+                  </span>{" "}
+                  〽 I like daily challenges because I can gain new experiences,
                   trying to challenge myself every day to be better.
                 </motion.p>
+                <motion.div
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    className="text-center mb-6"
+                  >
+                    <p className="text-sm text-gray-500">
+                      If you don't like the position of the buttons, move them!
+                      😉 Just make sure to double-click to get what you want.
+                    </p>
+                  </motion.div>
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.6 }}
                   className="flex flex-wrap items-center justify-center gap-4"
                 >
-                  <motion.a
-                    href="#contact"
-                    whileHover={{ scale: 1.05 }}
+                  
+                  <motion.button
+                    onDoubleClick={() => onCustomClick("contact")}
+                    whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
-                    className="inline-flex items-center gap-2 bg-green-500 text-black font-bold py-3 px-6 rounded-full 
-                      hover:bg-green-400 transition-colors"
+                    whileDrag={{ scale: 0.9, rotate: 10 }}
+                    drag
+                    className={`inline-flex items-center gap-2 bg-${colorTheme}-400 text-black font-bold py-3 px-6 rounded-full 
+    hover:bg-${colorTheme}-400 transition-colors`}
                   >
                     <Mail className="w-5 h-5" />
                     Get in touch
-                  </motion.a>
+                  </motion.button>
                   <motion.a
-                    href={cvDownload}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.05 }}
+                    onDoubleClick={() => onCustomLinkClick(cvDownload)}
+                    whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
-                    className="inline-flex items-center gap-2 py-3 px-6 rounded-full border-2 border-green-500 
-                      text-green-500 font-bold hover:bg-green-500/10 transition-colors duration-300"
+                    whileDrag={{ scale: 0.9, rotate: 10 }}
+                    drag
+                    className={`inline-flex items-center gap-2 py-3 px-6 rounded-full border-2 border-${colorTheme}-400 
+    text-${colorTheme}-400 font-bold hover:bg-${colorTheme}-400/10 transition-colors duration-300 cursor-pointer`}
                   >
                     <FileText className="w-5 h-5" />
                     Download CV
