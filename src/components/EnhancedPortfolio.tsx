@@ -1,11 +1,11 @@
 import { useState, useEffect, useRef } from 'react'
-import { ArrowUpRight, Terminal, Moon, Sun, ChevronDown, Mail, Phone, MapPin, Clock, FileText } from 'lucide-react'
-import { siGithub, siGmail, siLinkedin, SimpleIcon} from 'simple-icons';
+import { ArrowUpRight, Terminal, Moon, Sun, ChevronDown, Mail, Phone, MapPin, FileText } from 'lucide-react'
+import { siGithub, siGmail, siLinkedin, SimpleIcon, siSitecore} from 'simple-icons';
 import { motion, AnimatePresence } from 'framer-motion'
 import { Analytics } from '@vercel/analytics/react'
-import { ColorTheme, ThemeProperties, themes } from './models/Themes';
-import { colors } from './models/Colors';
-import { colorThemes } from './models/ColorThemes';
+import { ColorTheme, ThemeProperties, themes } from './visual-models/Themes';
+import { colors } from './visual-models/Colors';
+import { colorThemes } from './visual-models/ColorThemes';
 import projects from './data/projects.json';
 import careers from './data/careers.json';
 import skills from './data/skills.json';
@@ -16,15 +16,17 @@ import { marked } from 'marked';
 type SocialData = {
   icon: SimpleIcon
   label: string
-  href: string
+  href: string,
+  extraClass?: string
 }
 const socialData : SocialData[] = [
   { icon: siGithub, label: 'https://github.com/alejandrobolano', href: 'https://github.com/alejandrobolano' },
   { icon: siLinkedin, label: 'https://www.linkedin.com/in/alejandro-bolano/', href: 'https://www.linkedin.com/in/alejandro-bolano/' },
+  { icon: siSitecore, label: 'https://alejandrobolano.web.app', href: 'https://alejandrobolano.web.app', extraClass: 'line-through'},
 ];
 
 const socialDataLabel: SocialData[] = [
-  { icon: siGithub, label: 'GitHub' , href: 'https://github.com/alejandrobolano'},
+  { icon: siGithub, label: 'GitHub' , href: 'https://github.com/alejandrobolano/Portfolio'},
   { icon: siLinkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/alejandro-bolano/' },
   { icon: siGmail, label: 'Email', href: 'mailto:alejandro.bolano.336@gmail.com' }
 ]
@@ -171,7 +173,6 @@ export default function EnhancedPortfolio() {
     );
   }
 
-  // Helper function for button colors
   const getButtonColor = (style: string, type: 'close' | 'minimize' | 'maximize') => {
     return colors[style]?.[type] || colors.modern[type]
   }
@@ -229,7 +230,7 @@ export default function EnhancedPortfolio() {
             ))}
             <li className="md:ml-4">
               <motion.button
-                    onClick={() => onCustomLinkClick(cvDownload)}
+                    onClick={() => onCustomLinkClick(cvView)}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
                     whileDrag={{ scale: 0.9, rotate: 10 }}
@@ -400,12 +401,12 @@ export default function EnhancedPortfolio() {
         <>
           <ThemeControls />
           <header className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-sm">
-            <nav className="container mx-auto px-6 py-4">
+            <nav className="container mx-auto px-6 py-4 m:px-6 md:max-lg md:px-4 lg:px-8">
               <Navigation />
             </nav>
           </header>
 
-          <main className="container mx-auto px-4 py-20">
+          <main className="container mx-auto px-4 sm:px-2 md:px-0 sm:py-4 md:py-6 py-20">
             <section
               id="home"
               ref={containerRef}
@@ -454,16 +455,16 @@ export default function EnhancedPortfolio() {
                     isDarkMode ? "text-white" : "text-black"
                   }`}
                 >
-                  Hi, <span className={`text-${colorTheme}-400`}>I'm</span>{" "}
+                  <span className={`text-${colorTheme}-400`}>&lt;/</span>Hi, <span className={`text-${colorTheme}-400`}>I'm</span>{" "}
                   <span className="relative">
                     Alejandro Bolaño
                     <motion.span
-                      className="absolute -bottom-2 left-0 w-full h-1 bg-green-500/20"
+                      className={`absolute -bottom-2 left-0 w-full h-1 bg-${colorTheme}-500`}
                       initial={{ width: 0 }}
                       animate={{ width: "100%" }}
                       transition={{ delay: 0.5, duration: 0.8 }}
                     />
-                  </span>
+                  </span><span className={`text-${colorTheme}-400`}>&gt;</span>
                 </h1>
                 <br />
 
@@ -476,7 +477,9 @@ export default function EnhancedPortfolio() {
                   }`}
                 >
                   I'm a Software Engineer specializing in{" "}
-                  <span className={`text-${colorTheme}-400 ${colorTheme} font-semibold`}>
+                  <span
+                    className={`text-${colorTheme}-400 ${colorTheme} font-semibold`}
+                  >
                     full-stack development
                   </span>{" "}
                   with desires for{" "}
@@ -484,26 +487,28 @@ export default function EnhancedPortfolio() {
                     personal and professional improvement.
                   </span>{" "}
                   〽 I like daily challenges because I can gain new experiences,
-                  trying to challenge myself every day to be better. I love <span className={`text-${colorTheme}-400 font-semibold`}>doing manager team and lead it</span>
+                  trying to challenge myself every day to be better. I love{" "}
+                  <span className={`text-${colorTheme}-400 font-semibold`}>
+                    doing manager team and lead it
+                  </span>
                 </motion.p>
                 <motion.div
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="text-center mb-6"
-                  >
-                    <p className="text-sm text-gray-500">
-                      If you don't like the position of the buttons, move them!
-                      😉 Just make sure to double-click to get what you want.
-                    </p>
-                  </motion.div>
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                  className="text-center mb-6"
+                >
+                  <p className="text-sm text-gray-500">
+                    If you don't like the position of the buttons, move them! 😉
+                    Just make sure to double-click to get what you want.
+                  </p>
+                </motion.div>
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.6 }}
                   className="flex flex-wrap items-center justify-center gap-4"
                 >
-                  
                   <motion.button
                     onDoubleClick={() => onCustomClick("contact")}
                     whileHover={{ scale: 1.1 }}
@@ -592,7 +597,7 @@ export default function EnhancedPortfolio() {
                   isDarkMode ? "text-white" : "text-black"
                 }`}
               >
-                About Me
+                <span className={`text-${colorTheme}-400`}>&lt;/</span>About Me<span className={`text-${colorTheme}-400`}>&gt;</span>
               </h2>
               <div className="grid md:grid-cols-1 gap-6 lg:grid-cols-2 xl:grid-cols-2">
                 <Window title="about.json" isActive>
@@ -709,7 +714,7 @@ export default function EnhancedPortfolio() {
                   isDarkMode ? "text-white" : "text-black"
                 }`}
               >
-                Projects
+                <span className={`text-${colorTheme}-400`}>&lt;/</span>Projects<span className={`text-${colorTheme}-400`}>&gt;</span>                
               </h2>
               <Window title="projects.json" isActive>
                 <div className="space-y-8">
@@ -770,7 +775,8 @@ export default function EnhancedPortfolio() {
                     isDarkMode ? "text-white" : "text-black"
                   }`}
                 >
-                  Career Journey
+                  <span className={`text-${colorTheme}-400`}>&lt;/</span>Career Journey<span className={`text-${colorTheme}-400`}>&gt;</span>
+                  
                 </h2>
                 <motion.a
                   href={cvView}
@@ -844,77 +850,10 @@ export default function EnhancedPortfolio() {
                   isDarkMode ? "text-white" : "text-black"
                 }`}
               >
-                Contact
+                <span className={`text-${colorTheme}-400`}>&lt;/</span>Contact<span className={`text-${colorTheme}-400`}>&gt;</span>
+                
               </h2>
-              <div className="grid md:grid-cols-1 gap-6 lg:grid-cols-2 xl:grid-cols-2">
-                <Window title="contact-form.jsx" isActive>
-                  <form className="space-y-4">
-                    <div>
-                      <label
-                        htmlFor="name"
-                        className="block text-sm font-medium text-zinc-400 mb-1"
-                      >
-                        Name
-                      </label>
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        placeholder="Your name"
-                        className="w-full px-3 py-2 bg-zinc-800 border border-zinc-700 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-green-500 placeholder:text-zinc-600"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="email"
-                        className="block text-sm font-medium text-zinc-400 mb-1"
-                      >
-                        Email
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="your.email@example.com"
-                        className="w-full px-3 py-2 bg-zinc-800 border border-zinc-700 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-green-500 placeholder:text-zinc-600"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="message"
-                        className="block text-sm font-medium text-zinc-400 mb-1"
-                      >
-                        Message
-                      </label>
-                      <textarea
-                        id="message"
-                        name="message"
-                        rows={4}
-                        placeholder="Your message here..."
-                        className="w-full px-3 py-2 bg-zinc-800 border border-zinc-700 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-green-500 placeholder:text-zinc-600"
-                        required
-                      ></textarea>
-                    </div>
-                    <motion.button
-                      type="submit"
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      className="w-full bg-green-500 text-black font-bold py-3 px-4 rounded-md hover:bg-green-400 transition-colors flex items-center justify-center gap-2"
-                    >
-                      <Mail className="w-4 h-4" />
-                      Send Message
-                    </motion.button>
-                  </form>
-                  <div className="pt-4 border-t border-zinc-800 mt-4">
-                    <div className="flex items-center gap-2 text-sm text-zinc-400">
-                      <Clock className="w-4 h-4" />
-                      <span>Usually responds within 24 hours</span>
-                    </div>
-                  </div>
-                </Window>
-
+              <div className="grid grid-cols-1 gap-6">
                 <Window title="me-online.sh">
                   <div className="space-y-6">
                     <div className="space-y-4">
@@ -934,6 +873,7 @@ export default function EnhancedPortfolio() {
                           {contact.href ? (
                             <a
                               href={contact.href}
+                              target="_blank"
                               className="text-zinc-300 group-hover:text-green-500 transition-colors"
                             >
                               {contact.label}
@@ -953,7 +893,7 @@ export default function EnhancedPortfolio() {
                           <motion.div
                             key={social.label}
                             whileHover={{ x: 4 }}
-                            className="group flex items-center gap-4 p-2 rounded-md hover:bg-zinc-800/50 transition-colors"
+                            className={`group flex items-center gap-4 p-2 rounded-md hover:bg-zinc-800/50 transition-colors ${social?.extraClass}`}
                           >
                             <motion.svg
                               className={`w-6 h-6 group-hover:text-${colorTheme}-400 transition-colors`}
@@ -968,6 +908,7 @@ export default function EnhancedPortfolio() {
                             />
                             <a
                               href={social.href}
+                              target="_blank"
                               className={`text-zinc-300 group-hover:text-${colorTheme}-300 transition-colors`}
                             >
                               {social.label}
@@ -1002,8 +943,8 @@ export default function EnhancedPortfolio() {
           </main>
 
           <footer className="bg-black/80 backdrop-blur-sm py-8">
-            <div className="container mx-auto px-6 text-center">
-              <p className="text-zinc-400">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+              <p className="text-zinc-400 text-sm sm:text-base md:text-lg">
                 Copyright &copy; 2024 Alejandro Bolaño. All rights reserved.
               </p>
             </div>

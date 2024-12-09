@@ -18,6 +18,7 @@ A modern web portfolio built with React, TypeScript, and Vite.
 - Vite
 - ESLint
 - Prettier
+- Tailwindcss
 - [Other major dependencies you're using]
 
 ## 📦 Installation
@@ -61,7 +62,7 @@ my-portfolio/
 ├── src/
 │   ├── components/
 |   |──── data/
-|   |──── models/
+|   |──── visual-models/
 │   ├── pages/
 │   ├── assets/
 │   ├── styles/
@@ -105,6 +106,8 @@ export default tseslint.config({
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
+> You must change profile-pic-logo.png from /public/image
+
 ## 📝 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
@@ -114,8 +117,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 My Data
 - GitHub: [@alejandrobolano](https://github.com/alejandrobolano/)
 - LinkedIn: [Alejandro Bolaño](https://www.linkedin.com/in/alejandro-bolano/)
-- Forked from [@isandeepmakwana](https://github.com/isandeepmakwana)
+- This project is inspired from [@isandeepmakwana](https://github.com/isandeepmakwana)
 
 ---
 
-Built with ❤️ using React + TypeScript + Vite
+Built with ❤️ using React + TypeScript + Vite and thanks to [@isandeepmakwana](https://github.com/isandeepmakwana)

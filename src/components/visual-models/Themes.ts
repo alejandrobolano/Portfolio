@@ -25,7 +25,6 @@ export type ThemeProperties = {
     cyberpunk: ThemeProperties;
     gradient: ThemeProperties;
     vaporwave: ThemeProperties;
-    paper: ThemeProperties;
   };
 
   
