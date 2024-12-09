@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { ArrowUpRight, Terminal, Moon, Sun, ChevronDown, Mail, Phone, MapPin, Clock, FileText } from 'lucide-react'
 import { siGithub, siGmail, siLinkedin, SimpleIcon} from 'simple-icons';
 import { motion, AnimatePresence } from 'framer-motion'
@@ -382,7 +382,7 @@ export default function EnhancedPortfolio() {
   const onCustomLinkClick = (url: string) => {
     window.open(url, "_blank", "noopener,noreferrer");
   };
-  
+  const containerRef = useRef(null);
 
   return (
     <div
@@ -418,6 +418,7 @@ export default function EnhancedPortfolio() {
           <main className="container mx-auto px-4 py-20">
             <section
               id="home"
+              ref={containerRef}
               className="min-h-screen flex items-center justify-center py-20 relative"
             >
               <div className="absolute inset-0 overflow-hidden">
@@ -518,6 +519,7 @@ export default function EnhancedPortfolio() {
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
                     whileDrag={{ scale: 0.9, rotate: 10 }}
+                    dragConstraints={containerRef}
                     drag
                     className={`inline-flex items-center gap-2 bg-${colorTheme}-400 text-black font-bold py-3 px-6 rounded-full 
     hover:bg-${colorTheme}-400 transition-colors`}
@@ -530,6 +532,7 @@ export default function EnhancedPortfolio() {
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
                     whileDrag={{ scale: 0.9, rotate: 10 }}
+                    dragConstraints={containerRef}
                     drag
                     className={`inline-flex items-center gap-2 py-3 px-6 rounded-full border-2 border-${colorTheme}-400 
     text-${colorTheme}-400 font-bold hover:bg-${colorTheme}-400/10 transition-colors duration-300 cursor-pointer`}
@@ -601,7 +604,7 @@ export default function EnhancedPortfolio() {
               >
                 About Me
               </h2>
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid md:grid-cols-1 gap-6 lg:grid-cols-2 xl:grid-cols-2">
                 <Window title="about.json" isActive>
                   <div className="font-mono space-y-4 text-zinc-300">
                     <div className="typing-effect">
@@ -853,7 +856,7 @@ export default function EnhancedPortfolio() {
               >
                 Contact
               </h2>
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid md:grid-cols-1 gap-6 lg:grid-cols-2 xl:grid-cols-2">
                 <Window title="contact-form.jsx" isActive>
                   <form className="space-y-4">
                     <div>
