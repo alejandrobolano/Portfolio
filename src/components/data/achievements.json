@@ -7,11 +7,21 @@
     {
         "id":"02",
         "icon":"🎯",
-        "text": "Marketing digital by Google"
+        "text": "Curso básico de Marketing Digital"
     },    
     {
         "id":"03",
         "icon":"🎯",
-        "text": "Master´s degree"
+        "text": "EF SET English Certificate 48/100 (B1 Intermediate)"
+    },
+    {
+        "id":"04",
+        "icon":"📱",
+        "text": "Curso de Desarrollo de Apps Móviles"
+    },
+    {
+        "id":"05",
+        "icon":"🎓",
+        "text": "Master's degree in .NET Programming"
     }
 ]

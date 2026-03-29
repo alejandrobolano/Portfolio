@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { ArrowUpRight, Terminal, Moon, Sun, ChevronDown, Mail, Phone, MapPin, FileText } from 'lucide-react'
+import { ArrowUpRight, Terminal, Moon, Sun, ChevronDown, Mail, Phone, MapPin, FileText, Globe } from 'lucide-react'
 import { siGithub, siGmail, siLinkedin, SimpleIcon, siSitecore} from 'simple-icons';
 import { motion, AnimatePresence } from 'framer-motion'
 import { Analytics } from '@vercel/analytics/react'
@@ -47,6 +47,11 @@ const contacts = [
     label: "Barcelona, Spain",
     href: "https://maps.app.goo.gl/SAWgjBb7N2wYye6j7",
   },
+  {
+    icon: Globe,
+    label: "alejandrobolano.vercel.app",
+    href: "https://alejandrobolano.vercel.app",
+  }
 ]
 
 const navigation: string[] = ['home', 'about', 'projects', 'career', 'contact']
@@ -64,8 +69,8 @@ const windowStyles: windowStyle[] = [
 ];
 
 const randomColors500 = ["blue", "green", "purple"];
-const cvView = "https://drive.google.com/file/d/1ZrA5K017qO8h1yPeM0n7HePGNsGFs5P3/view?usp=sharing";
-const cvDownload = "https://drive.google.com/uc?export=download&id=1ZrA5K017qO8h1yPeM0n7HePGNsGFs5P3";
+const cvView = "https://drive.google.com/file/d/1t4VRySb6rF9vADIvklBpZqP9xyVTCthh/view?usp=sharing";
+const cvDownload = "https://drive.google.com/uc?export=download&id=1t4VRySb6rF9vADIvklBpZqP9xyVTCthh";
 
 
 export default function EnhancedPortfolio() {
@@ -220,7 +225,7 @@ export default function EnhancedPortfolio() {
           >
             <ChevronDown className={`w-6 h-6 transform transition-transform ${isMenuOpen ? 'rotate-180' : ''}`} />
           </button>
-          <ul className={`md:flex items-center gap-4 text-zinc-400 ${isMenuOpen ? 'block absolute top-full left-0 right-0 bg-black/80 p-4 md:p-0 md:relative md:bg-transparent' : 'hidden'}`}>
+          <ul className={`md:flex items-center gap-4 text-zinc-400 ${isMenuOpen ? 'flex flex-col justify-center items-center min-h-screen absolute top-0 left-0 right-0 bg-black/90 p-4 md:p-0 md:relative md:bg-transparent md:flex-row md:justify-start' : 'hidden'}`}>
             {navigation.map((item) => (
               <li key={item}>
                 <NavLink href={`#${item}`}>
@@ -240,15 +245,6 @@ export default function EnhancedPortfolio() {
                     <FileText className="w-5 h-5" />
                     Curriculum PDF
                   </motion.button>
-            </li>
-            <li>
-              <button
-                onClick={() => setIsDarkMode(!isDarkMode)}
-                className={`text-zinc-400 hover:text-${colorTheme}-500 transition-colors`}
-                aria-label="Toggle dark mode"
-              >
-                {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-              </button>
             </li>
           </ul>
         </div>
@@ -507,7 +503,7 @@ export default function EnhancedPortfolio() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.6 }}
-                  className="flex flex-wrap items-center justify-center gap-4"
+                  className="flex flex-col md:flex-row items-center justify-center gap-4"
                 >
                   <motion.button
                     onDoubleClick={() => onCustomClick("contact")}

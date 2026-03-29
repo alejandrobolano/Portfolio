@@ -17,7 +17,12 @@
     "jQuery",
     "Azure DevOps",
     "CSS",
-    "AngularJS"
+    "AngularJS",
+    "Java",
+    "Android",
+    "SQLite",
+    "JSON",
+    "MPAndroid Chart"
   ],
   "tools": [
     "Navitaire Products",
@@ -31,7 +36,16 @@
     "Azure",
     "Firebase",
     "GitHub",
-    "Android Studio"
+    "Android Studio",
+    "Make",
+    "Zapier",
+    "Hotjar",
+    "Google Analytics",
+    "ChatGPT",
+    "GoHighLevel",
+    "Ionos",
+    "ClickUp",
+    "Slack"
   ],
   "other": [
     "Teamwork",
@@ -44,6 +58,11 @@
     "Canva",
     "AI",
     "Ionos Server",
-    "Agile Process"
+    "Agile Process",
+    "Automatización",
+    "Automatización de procesos",
+    "Inteligencia artificial",
+    "Inglés (Professional Working)",
+    "Español (Native)"
   ]
 }

@@ -69,7 +69,7 @@
     "id": "03",
     "title": "Project Manager & Developer",
     "company": "ANS Invest Advisors",
-    "year": "Jan 2024 - now",
+    "year": "Dec 2020 - now",
     "link": "https://ansinvestadvisors.com/",
     "tech": [
       "ClickUp",
@@ -83,15 +83,23 @@
       "JS",
       "Agile",
       "Slack",
-      "Leadership"
+      "Leadership",
+      "Photoshop",
+      "Ionos",
+      "Make",
+      "Zapier",
+      "Hotjar",
+      "Google Analytics",
+      "ChatGPT",
+      "GoHighLevel"
     ],
-    "description": "Web and social media manager of ANS Invest Advisors. Server management, domain, and mail server management."
+    "description": "Coordination of digital projects for ANS Insurance Services, including planning, monitoring and delivery of web solutions. Leadership of technological initiatives with a focus on automation, productivity and efficiency through AI tools. Comprehensive management of servers, domains, corporate email and online presence. Direction of sales team and alignment between marketing and technology."
   },
   {
     "id": "04",
     "title": "Project Manager & Developer",
     "company": "ANS Insurance Services",
-    "year": "DIC 2020 - now",
+    "year": "Dec 2020 - now",
     "link": "https://ansinsuranceservices.com/en/",
     "tech": [
       "ClickUp",
@@ -105,16 +113,24 @@
       "JS",
       "Agile",
       "Slack",
-      "Leadership"
+      "Leadership",
+      "Photoshop",
+      "Ionos",
+      "Make",
+      "Zapier",
+      "Hotjar",
+      "Google Analytics",
+      "ChatGPT",
+      "GoHighLevel"
     ],
     "description": "Web and social media manager of ANS Insurance Services. Server management, domain, and mail server management."
   },
   {
     "id": "05",
-    "title": "Project Manager & Developer",
+    "title": "WordPress Developer",
     "company": "Cuba Blue Diving",
     "year": "March 2018 - Jan 2023",
-    "link": "http://cubabluediving.com/en/",
+    "link": "http://cubabluediving.com",
     "tech": [
       "Manager",
       "Wordpress",
@@ -124,15 +140,16 @@
       "Html",
       "CSS",
       "JS",
-      "Leadership"
+      "Leadership",
+      "Photoshop"
     ],
     "description": "Web and social media manager of Cuba Blue Diving. Server management, domain, and mail server management."
   },  
   {
     "id": "06",
-    "title": "Front Developer",
-    "company": "Ngx Smart Skeleton",
-    "year": "March 2018 - Jan 2023",
+    "title": "Web Developer",
+    "company": "Freelance",
+    "year": "March 2020 - Aug 2020",
     "link": "https://ngxsmartskeleton.web.app/",
     "tech": [
       "Git",
@@ -140,18 +157,66 @@
       "GitHub",
       "Firebase Google",
       "CI/CD with GitHub",
-      "Angular"
+      "Angular",
+      "Scrum"
     ],
-    "description": "Angular UX library de angular contains a complete set of skeleton components for the asynchronous loading of web applications."
+    "description": "Angular UX library that contains a complete set of skeleton components for the asynchronous loading of web applications."
   },  
   {
-    "id": "08",
-    "title": "Team Leader",
+    "id": "07",
+    "title": "Sales Team Leader",
     "company": "Combray Solutions",
     "year": "Oct 2017 - Jan 2019",
     "tech": [
       "Energy","Sales","Leadership"
     ],
     "description": "Head of sales team"
+  },
+  {
+    "id": "08",
+    "title": "Java Applications Developer",
+    "company": "DATYS",
+    "year": "Sep 2016 - Aug 2017",
+    "link": "",
+    "tech": [
+      "Java",
+      "C#.Net",
+      "MVC",
+      "UML"
+    ],
+    "description": "Project: Citizen control tool. Development of client application in Java that connects with services using C#.Net. MVC Architecture. Technologies: Java, C#.Net. Tools: UML."
+  },
+  {
+    "id": "09",
+    "title": "Mobile Applications Developer",
+    "company": "PAM International",
+    "year": "Nov 2014 - Apr 2016",
+    "link": "",
+    "tech": [
+      "Java",
+      "Android",
+      "SQLite",
+      "JSON",
+      "MPAndroid Chart",
+      "Android Studio",
+      "ORM"
+    ],
+    "description": "Project: Mobile Business Intelligence Tool. Development of native application in Java for Android. Technologies and tools: SQLite, Android, Java, JSON, MPAndroid Chart, Android Studio, ORM."
+  },
+  {
+    "id": "10",
+    "title": "Web Developer",
+    "company": "PAM International",
+    "year": "Nov 2014 - Jul 2015",
+    "link": "",
+    "tech": [
+      "ASP.Net",
+      "WebForms",
+      "SQL Server",
+      "Internet Information Services",
+      "Reporting Services",
+      "N-Tier"
+    ],
+    "description": "Project: Business Intelligence Tool. N-Tier Architecture. Technologies and tools: ASP.Net, WebForms, SQL Server, Internet Information Services, Reporting Services."
   }
 ]

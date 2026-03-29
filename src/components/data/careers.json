@@ -1,23 +1,30 @@
 [  
   {
     "id": "01",
-    "title": "Master´s degree, Master Programming .NET",
+    "title": "Master's degree, Master en Programación .Net",
     "year": "2019 - 2020",
-    "school": "Professional Computing Center (CIPSA)",
+    "school": "Centro de Informática Profesional CIPSA",
     "city": "Barcelona, Spain"
   },
   {
     "id": "02",
     "title": "Web design",
     "year": "2018 - 2019",
-    "school": "Professional Computing Center (CIPSA)",
+    "school": "Centro de Informática Profesional CIPSA",
     "city": "Barcelona, Spain"
   },
   {
     "id": "03",
-    "title": "Programming Engineer, Software developer",
+    "title": "Máster en Marketing Digital, Marketing",
+    "year": "2017 - 2018",
+    "school": "Centro de Informática Profesional CIPSA",
+    "city": "Barcelona, Spain"
+  },
+  {
+    "id": "04",
+    "title": "Ingeniero Informático, Desarrollador de software",
     "year": "2011 - 2016",
-    "school": "Universidad Tecnológica de La Habana José Antonio Echeverría​, CUJAE",
+    "school": "Universidad Tecnológica de La Habana \"Jose Antonio Echeverría\", CUJAE",
     "city": "Havana, Cuba"
   }
 ]
