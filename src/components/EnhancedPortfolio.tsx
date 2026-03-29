@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { ArrowUpRight, Terminal, Moon, Sun, ChevronDown, Mail, Phone, MapPin, FileText, Globe } from 'lucide-react'
+import { ArrowUpRight, Terminal, ChevronDown, Mail, MapPin, FileText, Globe, X } from 'lucide-react'
 import { siGithub, siGmail, siLinkedin, SimpleIcon, siSitecore} from 'simple-icons';
 import { motion, AnimatePresence } from 'framer-motion'
 import { Analytics } from '@vercel/analytics/react'
@@ -37,7 +37,7 @@ const contacts = [
     label: "alejandro.bolano.336@gmail.com",
     href: "mailto:alejandro.bolano.336@gmail.com",
   },
-    {
+  {
     icon: MapPin,
     label: "Barcelona, Spain",
     href: "https://maps.app.goo.gl/SAWgjBb7N2wYye6j7",
@@ -71,12 +71,13 @@ const cvDownload = "https://drive.google.com/uc?export=download&id=1t4VRySb6rF9v
 export default function EnhancedPortfolio() {
   const defaultWindow = 'modern'
   const [activeWindow, setActiveWindow] = useState('about')
-  const [isDarkMode, setIsDarkMode] = useState(true)
+  const [isDarkMode] = useState(true)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
   const [terminalStyle, setTerminalStyle] = useState<WindowProps['style']>(defaultWindow)
   const [colorTheme, setColorTheme] = useState<ColorTheme>('green')
   const [isThemeControlsOpen, setIsThemeControlsOpen] = useState(false)
+  const [showBookPopup, setShowBookPopup] = useState(false)
   
 
   useEffect(() => {
@@ -103,6 +104,11 @@ export default function EnhancedPortfolio() {
   useEffect(() => {
     const timer = setTimeout(() => setIsLoading(false), 500)
     return () => clearTimeout(timer)
+  }, [])
+
+  useEffect(() => {
+    const bookPopupTimer = setTimeout(() => setShowBookPopup(true), 5000)
+    return () => clearTimeout(bookPopupTimer)
   }, [])
 
   
@@ -941,6 +947,75 @@ export default function EnhancedPortfolio() {
             </div>
           </footer>
           <Analytics />
+          
+          {/* Book Popup */}
+          <AnimatePresence>
+            {showBookPopup && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 flex items-center justify-center p-4"
+                onClick={() => setShowBookPopup(false)}
+              >
+                <motion.div
+                  initial={{ scale: 0.95, opacity: 0, y: 20 }}
+                  animate={{ scale: 1, opacity: 1, y: 0 }}
+                  exit={{ scale: 0.95, opacity: 0, y: 20 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  className={`relative w-full max-w-lg p-8 rounded-lg border ${
+                    isDarkMode
+                      ? `bg-zinc-900/95 border-${colorTheme}-500/30`
+                      : `bg-white border-${colorTheme}-500/30`
+                  }`}
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <button
+                    onClick={() => setShowBookPopup(false)}
+                    className={`absolute top-4 right-4 p-2 rounded-lg transition-colors ${
+                      isDarkMode
+                        ? `hover:bg-zinc-800 text-zinc-400 hover:text-${colorTheme}-400`
+                        : `hover:bg-gray-100 text-gray-600 hover:text-${colorTheme}-600`
+                    }`}
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+
+                  <h3 className={`text-2xl font-bold mb-4 ${isDarkMode ? 'text-white' : 'text-black'}`}>
+                    <span className={`text-${colorTheme}-500`}>📚</span> Discover My Book
+                  </h3>
+                  
+                  <p className={`mb-6 leading-relaxed ${isDarkMode ? 'text-zinc-300' : 'text-gray-600'}`}>
+                    I'm <span className={`font-semibold text-${colorTheme}-400`}>Alejandro Bolaño</span>, author of <span className={`font-semibold text-${colorTheme}-400`}>"Make Your Time Work for You"</span>.
+                  </p>
+
+                  <p className={`mb-6 leading-relaxed text-sm ${isDarkMode ? 'text-zinc-400' : 'text-gray-500'}`}>
+                    Through clear strategies and practical examples, discover how to build effective systems, implement transformative habits, and use modern tools to simplify your daily life. From task automation to measuring success and maintaining balance between your goals and energy—this guide is complete for those seeking to take control of their time.
+                  </p>
+
+                  <p className={`mb-8 font-semibold ${isDarkMode ? 'text-zinc-300' : 'text-gray-700'}`}>
+                    Ready to change your relationship with time? <span className={`text-${colorTheme}-500`}>Start today!</span>
+                  </p>
+
+                  <motion.a
+                    href="https://www.amazon.com/stores/Alejandro-Bolaño/author/B0DTYS81XN"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className={`inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all ${
+                      isDarkMode
+                        ? `bg-${colorTheme}-600/20 text-${colorTheme}-400 border border-${colorTheme}-500/50 hover:bg-${colorTheme}-600/30`
+                        : `bg-${colorTheme}-100 text-${colorTheme}-700 border border-${colorTheme}-300 hover:bg-${colorTheme}-200`
+                    }`}
+                  >
+                    Explore on Amazon
+                    <ArrowUpRight className="w-4 h-4" />
+                  </motion.a>
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </>
       )}
     </div>
